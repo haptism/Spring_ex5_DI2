@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean class="com.iu.computer.Case" id="case">
+		<constructor-arg name="mainBoard" ref="mainBoard" />
+	</bean>
+	
+	<bean class="com.iu.computer.MainBoard" id="mainBoard">
+		<property name="cpu" ref="cpu" />
+		<property name="hardDisk" ref="hardDisk" />
+		<property name="vga" ref="vga" />
+		<property name="ram" ref="ram" />
+	</bean>
+	
+	<bean class="com.iu.computer.Vga" id="vga">
+		<constructor-arg type="java.lang.Integer" value="4"></constructor-arg>
+		<constructor-arg type="java.lang.String" value="NVIDIA"></constructor-arg>
+	</bean>
+	
+	<bean class="com.iu.computer.Ram" id="ram">
+		<constructor-arg name="size" value="4"></constructor-arg>
+		<constructor-arg name="company" value="HYNICS"></constructor-arg>
+	</bean>
+	
+	<bean class="com.iu.computer.Cpu" id="cpu">
+		<constructor-arg index="0">
+			<value>i7</value>
+		</constructor-arg>
+		<constructor-arg index="1" value="intel"></constructor-arg>
+	</bean>
+	
+	
+	<bean class="com.iu.computer.HardDisk" id="hardDisk">
+		<property name="brand">
+			<value>SAMSUNG</value>
+		</property>
+		<property name="size" value="100"></property>
+	</bean>
+	
+		
+</beans>
